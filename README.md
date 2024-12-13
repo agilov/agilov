@@ -47,10 +47,9 @@ func main() {
 
 ```
 
-<h2 style="color: #44AEFB">📊 My LeetCode and GitHub Stats</h2>
+<h2 style="color: #44AEFB">📊 My LeetCode Stats</h2>
 
 [![Leetcode Stats](https://leetcard.jacoblin.cool/agilov?theme=dark)](https://leetcode.com/u/agilov/)
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=agilov&show_icons=true&theme=dark)](https://github.com/agilov)
 
 ---
 
