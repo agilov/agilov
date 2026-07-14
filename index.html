@@ -1,65 +1,1014 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <title>Сайтецкий Ромы Агилова</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Сайтецкий Ромы Агилова, где ничего нет, кроме ссылки на Telegram и Linkedin"/>
-    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+
+    <title>Роман Агилов — IT-консультант для малого и среднего бизнеса</title>
+    <meta name="description"
+          content="Экономлю деньги на IT в малом и среднем бизнесе: оценка вашего программиста, найм первого разработчика, порядок в IT-функции. Стратегическая сессия — $1000, сопровождение — $2500/мес.">
+
+    <!-- Превью для соцсетей. После публикации укажите в og:image полный адрес,
+         например https://ваш-домен/img/roman-agilov-photo.png -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Роман Агилов — IT-консультант для малого и среднего бизнеса">
+    <meta property="og:description"
+          content="Экономлю деньги на IT и заставляю её работать на бизнес — а не на карьеру, резюме и эго программистов.">
+    <meta property="og:image" content="img/roman-agilov-photo.png">
+
+    <!-- Фавиконка: зелёный квадрат с буквами, без отдельного файла -->
+    <link rel="icon" href='img/favicon.png'>
+
     <style>
+        /* Inter — основной текст (загружены начертания 400, 500, 600, 700) */
+        @font-face {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-regular.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-500.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-600.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2");
+        }
+
+        /* Unbounded — заголовки и акценты (загружены начертания 400, 700, 900) */
+        @font-face {
+            font-family: "Unbounded";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-regular.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Unbounded";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Unbounded";
+            font-style: normal;
+            font-weight: 900;
+            font-display: swap;
+            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-900.woff2") format("woff2");
+        }
+
+        /* =====================================================================
+           1. ПАЛИТРА И НАСТРОЙКИ
+           Исходные цвета — палитра Tailwind CSS (в oklch).
+           Сайт использует только «роли» (--bg, --brand и т. д.),
+           поэтому для экспериментов достаточно поменять значения здесь.
+           ===================================================================== */
+        :root {
+            /* --- Исходная палитра (Tailwind). Не все цвета используются —
+                   часть оставлена про запас для экспериментов. --- */
+            --lime-400: oklch(84.1% 0.238 128.85);
+            --lime-500: oklch(76.8% 0.233 130.85);
+            --lime-600: oklch(64.8% 0.2 131.684);
+            --lime-700: oklch(53.2% 0.157 131.589); /* цвет бренда */
+
+            --neutral-50: oklch(98.5% 0 0);
+            --neutral-100: oklch(97% 0 0);
+            --neutral-200: oklch(92.2% 0 0);
+            --neutral-300: oklch(87% 0 0);
+            --neutral-400: oklch(70.8% 0 0);
+            --neutral-500: oklch(55.6% 0 0);
+            --neutral-600: oklch(43.9% 0 0);
+            --neutral-700: oklch(37.1% 0 0);
+            --neutral-800: oklch(26.9% 0 0);
+            --neutral-900: oklch(20.5% 0 0); /* основной фон */
+            --neutral-950: oklch(14.5% 0 0);
+
+            /* --- Роли цветов: дальше в CSS встречаются только эти переменные --- */
+            --bg: var(--neutral-950); /* фон страницы */
+            --surface: var(--neutral-800); /* залитые карточки, вторичные кнопки */
+            --surface-hover: var(--neutral-700); /* вторичные кнопки при наведении */
+            --border: var(--neutral-700); /* рамки карточек */
+            --divider: var(--neutral-800); /* тонкие линии-разделители */
+            --heading: var(--neutral-50); /* заголовки */
+            --text: var(--neutral-300); /* основной текст */
+            --text-strong: var(--neutral-200); /* акцентный текст, цитаты */
+            --muted: var(--neutral-400); /* второстепенный текст */
+            --brand: var(--lime-700); /* кнопки, акценты */
+            --brand-hover: var(--lime-600); /* кнопки при наведении */
+            --brand-text: var(--lime-400); /* акцентный текст и номера на тёмном */
+            --on-brand: var(--neutral-50); /* текст на зелёной кнопке */
+
+            /* --- Шрифты и размеры --- */
+            --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-display: "Unbounded", var(--font); /* акцидентный шрифт: заголовки, цены, цифры */
+            --container: 1140px;
+            --radius: 0px; /* углы прямые, как в референсе; поставьте 8–14px, если захотите скругления */
+        }
+
+        /* =====================================================================
+           2. БАЗА
+           ===================================================================== */
         * {
-            margin: 0;
-            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #061212;
-            color: #fae8f6;
-            font-family: 'Helvetica', 'Roboto', sans-serif;
-            padding: 50px;
-            text-align: center;
+            margin: 0;
+            font-family: var(--font);
+            font-size: 1.0625rem; /* 17px */
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Заголовки — акцидентный шрифт Unbounded.
+           Он заметно шире обычного, поэтому размеры меньше, чем были бы у Inter.
+           У Unbounded загружены только начертания 400, 700 и 900 — используйте их. */
+        h1, h2, h3 {
+            margin: 0 0 0.5em;
+            color: var(--heading);
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         h1 {
-            margin-bottom: 40px;
-            font-size: 40px;
-            letter-spacing: 2px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.12;
         }
 
         h2 {
-            margin-bottom: 40px;
-            font-size: 30px;
-            letter-spacing: 2px;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
         }
 
-        a {
-            color: #fae8f6;
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
         }
 
         p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            margin: 0 0 1em;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ::selection {
+            background: color-mix(in oklab, var(--brand) 45%, transparent);
+            color: var(--heading);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--brand-text);
+            outline-offset: 3px;
+        }
+
+        /* Отступ при переходе по якорям — чтобы липкая шапка не перекрывала заголовок */
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* =====================================================================
+           3. ПЕРЕИСПОЛЬЗУЕМЫЕ КОМПОНЕНТЫ (классы)
+           ===================================================================== */
+        .container {
+            max-width: var(--container);
+            margin-inline: auto;
+            padding-inline: 24px;
+        }
+
+        /* Секции разделяются только воздухом, без подложек и линий — как в референсе */
+        .section {
+            padding-block: clamp(72px, 10vw, 120px);
+        }
+
+        .section-title {
+            margin-bottom: clamp(36px, 6vw, 64px);
+        }
+
+        /* Кнопки — прямоугольные, без скруглений, как в референсе */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.05em 2.4em;
+            border: none;
+            border-radius: var(--radius);
+            font: inherit;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.15s, color 0.15s;
+        }
+
+        .btn--primary {
+            background: var(--brand);
+            color: var(--on-brand);
+        }
+
+        .btn--primary:hover {
+            background: var(--brand-hover);
+        }
+
+        .btn--secondary {
+            background: var(--surface);
+            color: var(--heading);
+        }
+
+        .btn--secondary:hover {
+            background: var(--surface-hover);
+        }
+
+        .btn--small {
+            padding: 0.7em 1.5em;
+        }
+
+        /* Кнопка-финал секции, по центру */
+        .cta-row {
+            margin-top: clamp(40px, 6vw, 64px);
+            text-align: center;
+        }
+
+        /* Сетки */
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid--2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid--3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Нумерованный список с заголовками («1. Непонятный программист») —
+           используется в «Решениях» и «Правилах». Нумерация автоматическая:
+           пункты можно добавлять и удалять, цифры пересчитаются сами. */
+        .numbered {
+            counter-reset: item;
+        }
+
+        .numbered .item {
+            counter-increment: item;
+            max-width: 860px;
+        }
+
+        .numbered .item + .item {
+            margin-top: clamp(32px, 5vw, 48px);
+        }
+
+        .numbered .item h3 {
+            margin-bottom: 0.45em;
+        }
+
+        .numbered .item h3::before {
+            content: counter(item) ".";
+            margin-right: 0.6em;
+            color: var(--brand-text);
+        }
+
+        .numbered .item p {
+            max-width: 72ch;
+        }
+
+        /* Подзаголовок внутри карточек: «Для кого», «Формат», «Результат», «Ситуация»… */
+        .label {
+            margin: 28px 0 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--heading);
+        }
+
+        .label:first-child {
+            margin-top: 0;
+        }
+
+        /* Текстовая ссылка */
+        .link {
+            color: var(--brand-text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .link:hover {
+            color: var(--brand-hover);
+        }
+
+        /* =====================================================================
+           4. ШАПКА
+           ===================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            padding-block: 18px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            color: var(--heading);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 26px;
+            margin-left: auto;
+        }
+
+        .nav a {
+            color: var(--text);
+            font-size: 0.9375rem;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-color: var(--muted);
+        }
+
+        .nav a:hover {
+            color: var(--heading);
+            text-decoration-color: var(--heading);
+        }
+
+        /* =====================================================================
+           5. ГЛАВНЫЙ ЭКРАН
+           ===================================================================== */
+        .hero {
+            padding-block: clamp(64px, 9vw, 110px);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(40px, 6vw, 80px);
+            align-items: center;
+        }
+
+        .hero-role {
+            margin: 14px 0 0;
+            font-size: 1.25rem;
+            color: var(--muted);
+        }
+
+        .hero-line {
+            max-width: 46ch;
+            margin: 18px 0 0;
+        }
+
+        .hero .btn {
+            margin-top: 40px;
+        }
+
+        /* Круглое фото, как в референсе. Подойдёт любая картинка:
+           она обрезается по кругу и вписывается по центру. */
+        .hero-photo {
+            justify-self: end;
+            width: min(100%, 420px);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            background: var(--surface);
+        }
+
+        /* Полоса цифр под главным экраном (заготовка, см. комментарий в HTML) */
+        .stats {
+            margin-top: clamp(56px, 8vw, 88px);
+            gap: 32px;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: var(--heading);
+        }
+
+        .stat-label {
+            margin-top: 6px;
+            color: var(--muted);
+        }
+
+        /* =====================================================================
+           6. ФОРМАТЫ РАБОТЫ
+           Широкие карточки во всю строку. Первая — с рамкой,
+           вторая — с заливкой (класс .plan--filled), как в референсе.
+           ===================================================================== */
+        .plan {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(28px, 4vw, 48px);
+        }
+
+        .plan--filled {
+            border-color: transparent;
+            background: var(--surface);
+        }
+
+        .plan + .plan {
+            margin-top: 28px;
+        }
+
+        .plan > h3 {
+            font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+            margin-bottom: 28px;
+        }
+
+        /* Внутренняя сетка карточки: слева «Для кого» и «Формат»,
+           справа «Результат», цена и кнопка */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 64px;
+            align-items: start;
+        }
+
+        .price {
+            margin: 28px 0 16px;
+            text-align: right;
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--heading);
+        }
+
+        .plan .btn {
+            width: 100%;
+        }
+
+        /* =====================================================================
+           7. КЕЙСЫ И ОТЗЫВЫ (стили для заготовок из комментариев в HTML)
+           ===================================================================== */
+        .case {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(24px, 3vw, 40px);
+        }
+
+        .case h3 {
+            margin-bottom: 24px;
+        }
+
+        .review-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .review-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--surface);
+        }
+
+        .review-name {
+            margin: 0;
+            font-weight: 600;
+            color: var(--heading);
+        }
+
+        .review-role {
+            margin: 0;
+            font-size: 0.9375rem;
+            color: var(--muted);
+        }
+
+        .review-quote {
+            margin: 0;
+            padding-left: 20px;
+            border-left: 2px solid var(--border);
+            font-style: italic;
+            color: var(--text-strong);
+        }
+
+        /* =====================================================================
+           8. ПОЧЕМУ Я (обо мне)
+           ===================================================================== */
+        .about-sub {
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            max-width: 72ch;
+        }
+
+        /* Колонки «Опыт» и «Образование» (заготовка в HTML) */
+        .roles-grid {
+            margin-top: clamp(40px, 6vw, 56px);
+            gap: 48px;
+        }
+
+        .roles-grid h3 {
+            margin-bottom: 20px;
+        }
+
+        .role {
+            margin: 0 0 16px;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--heading);
+        }
+
+        .role-org {
+            margin-left: 10px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        /* =====================================================================
+           9. СВЯЗАТЬСЯ
+           ===================================================================== */
+        .contact {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            text-decoration: none;
+            transition: border-color 0.15s;
+        }
+
+        .contact:hover {
+            border-color: var(--brand-text);
+        }
+
+        .contact-label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9375rem;
+            color: var(--muted);
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--heading);
+            word-break: break-word;
+        }
+
+        /* =====================================================================
+           10. ПОДВАЛ
+           ===================================================================== */
+        .footer {
+            border-top: 1px solid var(--divider);
+            padding-block: 28px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px 24px;
+            font-size: 0.9375rem;
+            color: var(--muted);
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        /* =====================================================================
+           11. АДАПТИВ
+           ===================================================================== */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                justify-self: start;
+                width: min(100%, 320px);
+                order: -1;
+            }
+
+            .grid--3 {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .price {
+                text-align: left;
+                margin-top: 24px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav {
+                display: none;
+            }
+
+            /* на телефоне остаются имя и кнопка «Связаться» */
+            .grid--2 {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding-inline: 20px;
+            }
         }
     </style>
-    <!-- /Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106703641', 'ym');
-
-        ym(106703641, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
 </head>
 <body>
 
-<h1>Привет!</h1>
-<h2>Меня зовут Рома Агилов, а это мой сайтецкий.</h2>
-<p>Если чо пиши в Telegram: <a href="https://t.me/agilov" target="_blank">@agilov</a>
-<p>Узнать кто такой и о чем речь можно в <a href="https://www.linkedin.com/in/agilov/" target="_blank">Linkedin</a>
-    <script>console.log("Ну и шо, мил человек, ты тут забыл? Если видишь это сообщение, пиши мне в телегу 'убер пупа' и получи приз!!1")</script>
+<!-- ===================== ШАПКА ===================== -->
+<header class="site-header" id="top">
+    <div class="container header-inner">
+        <a class="logo" href="#top">Роман Агилов</a>
+        <nav class="nav" aria-label="Основная навигация">
+            <a href="#solutions">Решения</a>
+            <a href="#formats">Форматы</a>
+            <!--
+            <a href="#cases">Кейсы</a>
+            <a href="#reviews">Отзывы</a>
+            -->
+            <a href="#about">Обо мне</a>
+            <a href="#rules">Правила</a>
+        </nav>
+        <a class="btn btn--primary btn--small" href="#contacts">Связаться</a>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===================== ГЛАВНЫЙ ЭКРАН ===================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div>
+                    <h1>Роман Агилов</h1>
+                    <p class="hero-role">IT-консультант для малого и среднего бизнеса</p>
+                    <p class="hero-line">Экономлю деньги на IT функцию и заставляю её работать на бизнес - а не на эго специалистов.</p>
+                    <a class="btn btn--primary" href="#contacts">Назначить встречу</a>
+                </div>
+                <div class="hero-photo">
+                    <!-- Положите своё фото в img/roman-agilov-photo.png — оно обрежется по кругу -->
+                    <img src="img/roman-agilov-photo.png" alt="Роман Агилов" width="800" height="800">
+                </div>
+            </div>
+
+            <!-- ПОЛОСА ЦИФР (как «20+ клиентов…» в референсе).
+                 Впишите свои реальные цифры и раскомментируйте.
+            <div class="stats grid grid--3">
+              <div class="stat">
+                <div class="stat-num">XX+</div>
+                <div class="stat-label">Проверенных программистов</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">XX+</div>
+                <div class="stat-label">Закрытых наймов</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">$XXX&nbsp;XXX+</div>
+                <div class="stat-label">Сэкономлено клиентам на IT</div>
+              </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- ===================== КАКИЕ ЗАДАЧИ Я ПОМОГУ РЕШИТЬ ===================== -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <h2 class="section-title">Какие задачи я помогу решить</h2>
+
+            <!-- Нумерация проставляется автоматически (CSS-счётчик):
+                 пункты можно добавлять и удалять, цифры пересчитаются сами -->
+            <div class="numbered">
+                <article class="item">
+                    <h3>Непонятный программист</h3>
+                    <p>Вы платите зарплату, но не понимаете, чем занят человек и что получаете взамен.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Профи или «вкатун»</h3>
+                    <p>Не можете оценить квалификацию: какого качества код, какой реальный опыт, чего стоят
+                        обещания.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Многоработник</h3>
+                    <p>Подозреваете, что ваш программист параллельно работает ещё на две-три компании.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Первый найм без экспертизы</h3>
+                    <p>Нужен первый программист, но вы не из IT и рискуете нанять «дорогое резюме» в надежде, что оно
+                        само разберётся.</p>
+                </article>
+
+                <article class="item">
+                    <h3>IT работает на себя</h3>
+                    <p>Функция IT обслуживает карьеру, резюме, эго и фантазии сотрудников, а не задачи бизнеса.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Расходы без отдачи</h3>
+                    <p>Бюджет на IT растёт, но вы не понимаете, как это связано с прибылью.</p>
+                </article>
+            </div>
+
+            <div class="cta-row">
+                <a class="btn btn--primary" href="#contacts">Обсудить ваши задачи</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ФОРМАТЫ РАБОТЫ ===================== -->
+    <section class="section" id="formats">
+        <div class="container">
+            <h2 class="section-title">Форматы работы</h2>
+
+            <!-- Формат 1: стратегическая сессия (карточка с рамкой) -->
+            <article class="plan">
+                <h3>Стратегическая сессия</h3>
+                <div class="plan-grid">
+                    <div>
+                        <p class="label">Для кого</p>
+                        <p>Для собственников малого и среднего бизнеса с конкретным вопросом: оценить программиста,
+                            подготовиться к найму, разобраться с расходами на IT.</p>
+
+                        <p class="label">Формат</p>
+                        <p>1–2 онлайн-встречи. Информацию и материалы собираю заранее — на встречу прихожу
+                            подготовленным, время не уходит на «расскажите с начала».</p>
+                    </div>
+                    <div>
+                        <p class="label">Результат</p>
+                        <p>Честная картина ситуации простым языком.</p>
+                        <p>Понимание следующих 2–3 шагов.</p>
+
+                        <p class="price">$1000 / сессия</p>
+                        <a class="btn btn--secondary" href="#contacts">Записаться на сессию</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Формат 2: сопровождение (карточка с заливкой) -->
+            <article class="plan plan--filled">
+                <h3>Сопровождение</h3>
+                <div class="plan-grid">
+                    <div>
+                        <p class="label">Для кого</p>
+                        <p>Для собственников, у которых вопросы к IT и программистам возникают постоянно, а своей
+                            экспертизы нет.</p>
+
+                        <p class="label">Формат</p>
+                        <p>Полный контакт: я на связи, вопросы решаем по мере появления.</p>
+                        <p>Собеседования, проверка работы программистов и подрядчиков, решения о деньгах.</p>
+                    </div>
+                    <div>
+                        <p class="label">Результат</p>
+                        <p>IT под контролем. Решения принимаются с опорой на экспертизу, а не на слова
+                            программистов.</p>
+                        <p>Деньги не утекают.</p>
+
+                        <p class="price">$2500 / месяц</p>
+                        <a class="btn btn--primary" href="#contacts">Обсудить сопровождение</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===================== КЕЙСЫ (заготовка) =====================
+         Структура как в референсе: Ситуация → Что сделал → Результат,
+         каждый факт — отдельным коротким абзацем.
+         Впишите 2–3 реальных кейса и раскомментируйте секцию целиком
+         (и пункт «Кейсы» в меню шапки).
+
+    <section class="section" id="cases">
+      <div class="container">
+        <h2 class="section-title">Кейсы</h2>
+
+        <div class="grid grid--2">
+          <article class="case">
+            <h3>Название кейса</h3>
+
+            <p class="label">Ситуация</p>
+            <p>Компания, размер, сфера.</p>
+            <p>В чём была проблема.</p>
+
+            <p class="label">Что сделал</p>
+            <p>Шаг 1.</p>
+            <p>Шаг 2.</p>
+
+            <p class="label">Результат</p>
+            <p>Измеримый итог: деньги, сроки, решение.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#contacts">Решить ваш кейс</a>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ===================== ОТЗЫВЫ (заготовка) =====================
+         Впишите реальные отзывы и раскомментируйте секцию
+         (и пункт «Отзывы» в меню шапки). Фото клиента положите в img/
+         или удалите строку с <img>.
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <h2 class="section-title">Отзывы</h2>
+
+        <div class="grid grid--2">
+          <article class="review">
+            <div class="review-head">
+              <img class="review-photo" src="img/review-1.png" alt="Имя Фамилия" width="64" height="64">
+              <div>
+                <p class="review-name">Имя Фамилия</p>
+                <p class="review-role">Должность, компания</p>
+              </div>
+            </div>
+            <blockquote class="review-quote">«Текст отзыва…»</blockquote>
+          </article>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ===================== ПОЧЕМУ Я ===================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Почему я</h2>
+
+            <h3 class="about-sub">Обо мне</h3>
+            <div class="about-text">
+                <p>Смотрю на IT глазами владельца бизнеса: считаю деньги и результат, а&nbsp;не строки кода и модные
+                    технологии.</p>
+                <p>Экономлю деньги на IT в малых и средних компаниях. Заставляю IT работать на бизнес — а не на карьеру,
+                    развлечения, эго, резюме, фантазии и травмы отдельных специалистов.</p>
+                <p>Объясняю простым языком: что происходит, сколько это стоит и что с этим делать.</p>
+            </div>
+
+            <!-- ОПЫТ И ОБРАЗОВАНИЕ (как в референсе).
+                 Впишите свои факты и раскомментируйте.
+            <div class="roles-grid grid grid--2">
+              <div>
+                <h3>Опыт</h3>
+                <p class="role"><span class="role-title">Роль</span><span class="role-org">Компания</span></p>
+                <p class="role"><span class="role-title">Роль</span><span class="role-org">Компания</span></p>
+              </div>
+              <div>
+                <h3>Образование</h3>
+                <p class="role"><span class="role-title">Специальность</span><span class="role-org">Вуз</span></p>
+              </div>
+            </div>
+            -->
+
+            <div class="cta-row">
+                <a class="btn btn--primary" href="#contacts">Связаться напрямую</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ПРАВИЛА ВЗАИМОДЕЙСТВИЯ ===================== -->
+    <section class="section" id="rules">
+        <div class="container">
+            <h2 class="section-title">Правила взаимодействия</h2>
+
+            <div class="numbered">
+                <article class="item">
+                    <h3>Простым языком</h3>
+                    <p>Никакого технического жаргона.</p>
+                    <p>Выводы и рекомендации — на языке денег, сроков и здравого смысла.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Готовлюсь заранее</h3>
+                    <p>Информацию и материалы собираю до встречи.</p>
+                    <p>Ваше время не уходит на пересказ очевидного.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Честная картина</h3>
+                    <p>Говорю как есть, даже если вывод неприятный.</p>
+                    <p>Вы платите за правду, а не за комфортные формулировки.</p>
+                </article>
+
+                <article class="item">
+                    <h3>На стороне бизнеса</h3>
+                    <p>Не защищаю программистов и не продаю технологии.</p>
+                    <p>Критерий один: польза для вашего дела.</p>
+                </article>
+
+                <article class="item">
+                    <h3>Решения остаются за вами</h3>
+                    <p>Я даю картину, варианты и последствия.</p>
+                    <p>Нанимать, увольнять и платить — решаете вы.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== СВЯЗАТЬСЯ ===================== -->
+    <!-- ВАЖНО: замените плейсхолдеры на реальные данные — и в href, и в видимом тексте -->
+    <section class="section" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Связаться</h2>
+
+            <div class="grid grid--3">
+                <a class="contact" href="mailto:agilovr@gmail.com">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">agilovr@gmail.com</span>
+                </a>
+                <!-- В href вставьте ссылку вида https://t.me/username -->
+                <a class="contact" target="_blank" href="https://t.me/agilov">
+                    <span class="contact-label">Telegram</span>
+                    <span class="contact-value">@agilov</span>
+                </a>
+                <a class="contact" target="_blank" href="https://www.linkedin.com/in/agilov/">
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/agilov</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===================== ПОДВАЛ ===================== -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>© <span id="year">2026</span> Роман Агилов</p>
+        <p>
+            ROMAN AGILOV PR BEOGRAD
+            <br/>
+            MB 68367476
+            <br/>
+            Gavrila Principa 43, Beograd
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
