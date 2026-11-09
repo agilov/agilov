@@ -4,1011 +4,391 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Роман Агилов — IT-консультант для малого и среднего бизнеса</title>
+    <title>Роман Агилов — привожу клиентов в небольшой бизнес</title>
     <meta name="description"
-          content="Экономлю деньги на IT в малом и среднем бизнесе: оценка вашего программиста, найм первого разработчика, порядок в IT-функции. Стратегическая сессия — $1000, сопровождение — $2500/мес.">
+          content="Настраиваю и веду рекламу для небольшого бизнеса: Instagram, Facebook, Google. Заявки и звонки, а не лайки. Запуск — $999, ведение — от $399/мес.">
 
-    <!-- Превью для соцсетей. После публикации укажите в og:image полный адрес,
-         например https://ваш-домен/img/roman-agilov-photo.png -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Роман Агилов — IT-консультант для малого и среднего бизнеса">
+    <meta property="og:title" content="Роман Агилов — привожу клиентов в небольшой бизнес">
     <meta property="og:description"
-          content="Экономлю деньги на IT и заставляю её работать на бизнес — а не на карьеру, резюме и эго программистов.">
-    <meta property="og:image" content="img/roman-agilov-photo.png">
+          content="Реклама для небольшого бизнеса: заявки и звонки, а не лайки и охваты. Запуск — $999, ведение — от $399/мес.">
+    <meta property="og:image" content="https://agilov.com/img/roman-agilov-photo.png">
 
-    <!-- Фавиконка: зелёный квадрат с буквами, без отдельного файла -->
-    <link rel="icon" href='img/favicon.png'>
+    <link rel="icon" href="img/favicon.png">
 
     <style>
-        /* Inter — основной текст (загружены начертания 400, 500, 600, 700) */
-        @font-face {
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-regular.woff2") format("woff2");
-        }
+        /* ============================== ШРИФТЫ ============================== */
+        @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-regular.woff2") format("woff2"); }
+        @font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-500.woff2") format("woff2"); }
+        @font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-600.woff2") format("woff2"); }
+        @font-face { font-family: "Inter"; font-weight: 700; font-display: swap; src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2"); }
+        @font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap; src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2"); }
+        @font-face { font-family: "Unbounded"; font-weight: 900; font-display: swap; src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-900.woff2") format("woff2"); }
 
-        @font-face {
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 500;
-            font-display: swap;
-            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-500.woff2") format("woff2");
-        }
-
-        @font-face {
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 600;
-            font-display: swap;
-            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-600.woff2") format("woff2");
-        }
-
-        @font-face {
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url("fonts/inter-v20-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2");
-        }
-
-        /* Unbounded — заголовки и акценты (загружены начертания 400, 700, 900) */
-        @font-face {
-            font-family: "Unbounded";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-regular.woff2") format("woff2");
-        }
-
-        @font-face {
-            font-family: "Unbounded";
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-700.woff2") format("woff2");
-        }
-
-        @font-face {
-            font-family: "Unbounded";
-            font-style: normal;
-            font-weight: 900;
-            font-display: swap;
-            src: url("fonts/unbounded-v12-cyrillic_cyrillic-ext_latin-900.woff2") format("woff2");
-        }
-
-        /* =====================================================================
-           1. ПАЛИТРА И НАСТРОЙКИ
-           Исходные цвета — палитра Tailwind CSS (в oklch).
-           Сайт использует только «роли» (--bg, --brand и т. д.),
-           поэтому для экспериментов достаточно поменять значения здесь.
-           ===================================================================== */
+        /* ============================== ПАЛИТРА ============================== */
         :root {
-            /* --- Исходная палитра (Tailwind). Не все цвета используются —
-                   часть оставлена про запас для экспериментов. --- */
-            --lime-400: oklch(84.1% 0.238 128.85);
-            --lime-500: oklch(76.8% 0.233 130.85);
-            --lime-600: oklch(64.8% 0.2 131.684);
-            --lime-700: oklch(53.2% 0.157 131.589); /* цвет бренда */
+            --bg: oklch(13.5% 0.005 130);
+            --bg-2: oklch(16.5% 0.006 130);
+            --surface: oklch(19% 0.008 130);
+            --border: oklch(28% 0.012 130);
+            --border-soft: oklch(22% 0.01 130);
+            --heading: oklch(98% 0 0);
+            --text: oklch(84% 0.005 130);
+            --muted: oklch(64% 0.01 130);
+            --brand: oklch(87% 0.22 125);        /* лайм */
+            --brand-glow: oklch(87% 0.22 125 / 0.18);
+            --brand-soft: oklch(87% 0.22 125 / 0.1);
+            --on-brand: oklch(17% 0.03 130);
 
-            --neutral-50: oklch(98.5% 0 0);
-            --neutral-100: oklch(97% 0 0);
-            --neutral-200: oklch(92.2% 0 0);
-            --neutral-300: oklch(87% 0 0);
-            --neutral-400: oklch(70.8% 0 0);
-            --neutral-500: oklch(55.6% 0 0);
-            --neutral-600: oklch(43.9% 0 0);
-            --neutral-700: oklch(37.1% 0 0);
-            --neutral-800: oklch(26.9% 0 0);
-            --neutral-900: oklch(20.5% 0 0); /* основной фон */
-            --neutral-950: oklch(14.5% 0 0);
-
-            /* --- Роли цветов: дальше в CSS встречаются только эти переменные --- */
-            --bg: var(--neutral-950); /* фон страницы */
-            --surface: var(--neutral-800); /* залитые карточки, вторичные кнопки */
-            --surface-hover: var(--neutral-700); /* вторичные кнопки при наведении */
-            --border: var(--neutral-700); /* рамки карточек */
-            --divider: var(--neutral-800); /* тонкие линии-разделители */
-            --heading: var(--neutral-50); /* заголовки */
-            --text: var(--neutral-300); /* основной текст */
-            --text-strong: var(--neutral-200); /* акцентный текст, цитаты */
-            --muted: var(--neutral-400); /* второстепенный текст */
-            --brand: var(--lime-700); /* кнопки, акценты */
-            --brand-hover: var(--lime-600); /* кнопки при наведении */
-            --brand-text: var(--lime-400); /* акцентный текст и номера на тёмном */
-            --on-brand: var(--neutral-50); /* текст на зелёной кнопке */
-
-            /* --- Шрифты и размеры --- */
-            --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --font-display: "Unbounded", var(--font); /* акцидентный шрифт: заголовки, цены, цифры */
-            --container: 1140px;
-            --radius: 0px; /* углы прямые, как в референсе; поставьте 8–14px, если захотите скругления */
+            --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            --font-display: "Unbounded", var(--font);
+            --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            --container: 1180px;
+            --radius: 18px;
         }
 
-        /* =====================================================================
-           2. БАЗА
-           ===================================================================== */
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* ============================== БАЗА ============================== */
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            margin: 0;
-            font-family: var(--font);
-            font-size: 1.0625rem; /* 17px */
-            line-height: 1.65;
-            color: var(--text);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            margin: 0; background: var(--bg); color: var(--text);
+            font: 400 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden;
         }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+        h1, h2, h3 { color: var(--heading); margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+        p { margin: 0; }
+        b { color: var(--heading); font-weight: 600; }
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        .grid-bg {
+            position: absolute; inset: 0; pointer-events: none; z-index: 0;
+            background-image: linear-gradient(var(--border-soft) 1px, transparent 1px), linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+            opacity: .5;
         }
+        .glow { position: absolute; pointer-events: none; z-index: 0; border-radius: 50%; background: radial-gradient(circle, var(--brand-glow), transparent 65%); filter: blur(20px); }
 
-        /* Заголовки — акцидентный шрифт Unbounded.
-           Он заметно шире обычного, поэтому размеры меньше, чем были бы у Inter.
-           У Unbounded загружены только начертания 400, 700 и 900 — используйте их. */
-        h1, h2, h3 {
-            margin: 0 0 0.5em;
-            color: var(--heading);
-            font-family: var(--font-display);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            line-height: 1.12;
-        }
-
-        h2 {
-            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 400;
-        }
-
-        p {
-            margin: 0 0 1em;
-        }
-
-        p:last-child {
-            margin-bottom: 0;
-        }
-
-        ::selection {
-            background: color-mix(in oklab, var(--brand) 45%, transparent);
-            color: var(--heading);
-        }
-
-        :focus-visible {
-            outline: 2px solid var(--brand-text);
-            outline-offset: 3px;
-        }
-
-        /* Отступ при переходе по якорям — чтобы липкая шапка не перекрывала заголовок */
-        section[id] {
-            scroll-margin-top: 90px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            * {
-                transition: none !important;
-            }
-        }
-
-        /* =====================================================================
-           3. ПЕРЕИСПОЛЬЗУЕМЫЕ КОМПОНЕНТЫ (классы)
-           ===================================================================== */
-        .container {
-            max-width: var(--container);
-            margin-inline: auto;
-            padding-inline: 24px;
-        }
-
-        /* Секции разделяются только воздухом, без подложек и линий — как в референсе */
-        .section {
-            padding-block: clamp(72px, 10vw, 120px);
-        }
-
-        .section-title {
-            margin-bottom: clamp(36px, 6vw, 64px);
-        }
-
-        /* Кнопки — прямоугольные, без скруглений, как в референсе */
+        /* ============================== КНОПКИ ============================== */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.05em 2.4em;
-            border: none;
-            border-radius: var(--radius);
-            font: inherit;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.15s, color 0.15s;
-        }
-
-        .btn--primary {
-            background: var(--brand);
-            color: var(--on-brand);
-        }
-
-        .btn--primary:hover {
-            background: var(--brand-hover);
-        }
-
-        .btn--secondary {
-            background: var(--surface);
-            color: var(--heading);
-        }
-
-        .btn--secondary:hover {
-            background: var(--surface-hover);
-        }
-
-        .btn--small {
-            padding: 0.7em 1.5em;
-        }
-
-        /* Кнопка-финал секции, по центру */
-        .cta-row {
-            margin-top: clamp(40px, 6vw, 64px);
-            text-align: center;
-        }
-
-        /* Сетки */
-        .grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .grid--2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid--3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        /* Нумерованный список с заголовками («1. Непонятный программист») —
-           используется в «Решениях» и «Правилах». Нумерация автоматическая:
-           пункты можно добавлять и удалять, цифры пересчитаются сами. */
-        .numbered {
-            counter-reset: item;
-        }
-
-        .numbered .item {
-            counter-increment: item;
-            max-width: 860px;
-        }
-
-        .numbered .item + .item {
-            margin-top: clamp(32px, 5vw, 48px);
-        }
-
-        .numbered .item h3 {
-            margin-bottom: 0.45em;
-        }
-
-        .numbered .item h3::before {
-            content: counter(item) ".";
-            margin-right: 0.6em;
-            color: var(--brand-text);
-        }
-
-        .numbered .item p {
-            max-width: 72ch;
-        }
-
-        /* Подзаголовок внутри карточек: «Для кого», «Формат», «Результат», «Ситуация»… */
-        .label {
-            margin: 28px 0 8px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--heading);
-        }
-
-        .label:first-child {
-            margin-top: 0;
-        }
-
-        /* Текстовая ссылка */
-        .link {
-            color: var(--brand-text);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .link:hover {
-            color: var(--brand-hover);
-        }
-
-        /* =====================================================================
-           4. ШАПКА
-           ===================================================================== */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: var(--bg);
-            border-bottom: 1px solid var(--divider);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            padding-block: 18px;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 0.9375rem;
-            color: var(--heading);
-            text-decoration: none;
-        }
-
-        .nav {
-            display: flex;
-            gap: 26px;
-            margin-left: auto;
-        }
-
-        .nav a {
-            color: var(--text);
-            font-size: 0.9375rem;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-            text-decoration-color: var(--muted);
-        }
-
-        .nav a:hover {
-            color: var(--heading);
-            text-decoration-color: var(--heading);
-        }
-
-        /* =====================================================================
-           5. ГЛАВНЫЙ ЭКРАН
-           ===================================================================== */
-        .hero {
-            padding-block: clamp(64px, 9vw, 110px);
-        }
-
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: clamp(40px, 6vw, 80px);
-            align-items: center;
-        }
-
-        .hero-role {
-            margin: 14px 0 0;
-            font-size: 1.25rem;
-            color: var(--muted);
-        }
-
-        .hero-line {
-            max-width: 46ch;
-            margin: 18px 0 0;
-        }
-
-        .hero .btn {
-            margin-top: 40px;
-        }
-
-        /* Круглое фото, как в референсе. Подойдёт любая картинка:
-           она обрезается по кругу и вписывается по центру. */
-        .hero-photo {
-            justify-self: end;
-            width: min(100%, 420px);
-        }
-
-        .hero-photo img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 50%;
-            background: var(--surface);
-        }
-
-        /* Полоса цифр под главным экраном (заготовка, см. комментарий в HTML) */
-        .stats {
-            margin-top: clamp(56px, 8vw, 88px);
-            gap: 32px;
-        }
-
-        .stat-num {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-            font-weight: 700;
-            color: var(--heading);
-        }
-
-        .stat-label {
-            margin-top: 6px;
-            color: var(--muted);
-        }
-
-        /* =====================================================================
-           6. ФОРМАТЫ РАБОТЫ
-           Широкие карточки во всю строку. Первая — с рамкой,
-           вторая — с заливкой (класс .plan--filled), как в референсе.
-           ===================================================================== */
-        .plan {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(28px, 4vw, 48px);
-        }
-
-        .plan--filled {
-            border-color: transparent;
-            background: var(--surface);
-        }
-
-        .plan + .plan {
-            margin-top: 28px;
-        }
-
-        .plan > h3 {
-            font-size: clamp(1.35rem, 2.5vw, 1.6rem);
-            margin-bottom: 28px;
-        }
-
-        /* Внутренняя сетка карточки: слева «Для кого» и «Формат»,
-           справа «Результат», цена и кнопка */
-        .plan-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 64px;
-            align-items: start;
-        }
-
-        .price {
-            margin: 28px 0 16px;
-            text-align: right;
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--heading);
-        }
-
-        .plan .btn {
-            width: 100%;
-        }
-
-        /* =====================================================================
-           7. КЕЙСЫ И ОТЗЫВЫ (стили для заготовок из комментариев в HTML)
-           ===================================================================== */
-        .case {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(24px, 3vw, 40px);
-        }
-
-        .case h3 {
-            margin-bottom: 24px;
-        }
-
-        .review-head {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .review-photo {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--surface);
-        }
-
-        .review-name {
-            margin: 0;
-            font-weight: 600;
-            color: var(--heading);
-        }
-
-        .review-role {
-            margin: 0;
-            font-size: 0.9375rem;
-            color: var(--muted);
-        }
-
-        .review-quote {
-            margin: 0;
-            padding-left: 20px;
-            border-left: 2px solid var(--border);
-            font-style: italic;
-            color: var(--text-strong);
-        }
-
-        /* =====================================================================
-           8. ПОЧЕМУ Я (обо мне)
-           ===================================================================== */
-        .about-sub {
-            margin-bottom: 24px;
-        }
-
-        .about-text p {
-            max-width: 72ch;
-        }
-
-        /* Колонки «Опыт» и «Образование» (заготовка в HTML) */
-        .roles-grid {
-            margin-top: clamp(40px, 6vw, 56px);
-            gap: 48px;
-        }
-
-        .roles-grid h3 {
-            margin-bottom: 20px;
-        }
-
-        .role {
-            margin: 0 0 16px;
-        }
-
-        .role-title {
-            font-weight: 600;
-            color: var(--heading);
-        }
-
-        .role-org {
-            margin-left: 10px;
-            font-style: italic;
-            color: var(--muted);
-        }
-
-        /* =====================================================================
-           9. СВЯЗАТЬСЯ
-           ===================================================================== */
-        .contact {
-            display: block;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px 28px;
-            text-decoration: none;
-            transition: border-color 0.15s;
-        }
-
-        .contact:hover {
-            border-color: var(--brand-text);
-        }
-
-        .contact-label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.9375rem;
-            color: var(--muted);
-        }
-
-        .contact-value {
-            font-weight: 600;
-            color: var(--heading);
-            word-break: break-word;
-        }
-
-        /* =====================================================================
-           10. ПОДВАЛ
-           ===================================================================== */
-        .footer {
-            border-top: 1px solid var(--divider);
-            padding-block: 28px;
-        }
-
-        .footer-inner {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px 24px;
-            font-size: 0.9375rem;
-            color: var(--muted);
-        }
-
-        .footer-inner p {
-            margin: 0;
-        }
-
-        /* =====================================================================
-           11. АДАПТИВ
-           ===================================================================== */
-        @media (max-width: 900px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-photo {
-                justify-self: start;
-                width: min(100%, 320px);
-                order: -1;
-            }
-
-            .grid--3 {
-                grid-template-columns: 1fr;
-            }
-
-            .plan-grid {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .price {
-                text-align: left;
-                margin-top: 24px;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .nav {
-                display: none;
-            }
-
-            /* на телефоне остаются имя и кнопка «Связаться» */
-            .grid--2 {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding-inline: 20px;
-            }
+            display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px;
+            font: 600 16px/1 var(--font); text-decoration: none; border: 1px solid transparent;
+            transition: transform .2s, background .2s, box-shadow .2s, border-color .2s;
+        }
+        .btn--primary { background: var(--brand); color: var(--on-brand); }
+        .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px -8px var(--brand); }
+        .btn--ghost { border-color: var(--border); color: var(--heading); }
+        .btn--ghost:hover { border-color: var(--brand); background: var(--brand-soft); }
+        .btn svg { width: 18px; height: 18px; }
+
+
+        /* ============================== HERO ============================== */
+        .hero { position: relative; padding: 140px 0 120px; overflow: hidden; }
+        .hero .glow { width: 760px; height: 760px; top: -260px; right: -200px; }
+        .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+        .hero h1 { font-size: clamp(38px, 5.4vw, 68px); line-height: 1.04; margin: 0 0 24px; font-weight: 900; }
+        .hero h1 em { font-style: normal; color: var(--brand); }
+        .hero-lead { font-size: 19px; max-width: 540px; }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+        .hero-note { margin-top: 22px; font-size: 14px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; }
+
+        /* ============================== ЛЕНТА КАНАЛОВ ============================== */
+        .channels { border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); background: var(--bg-2); overflow: hidden; }
+        .marquee { display: flex; gap: 56px; padding: 22px 0; width: max-content; animation: marquee 34s linear infinite; }
+        .marquee span { font: 700 18px/1 var(--font-display); color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 56px; }
+        .marquee span::after { content: "✦"; color: var(--brand); font-size: 14px; }
+        @keyframes marquee { to { transform: translateX(-50%); } }
+
+        /* ============================== СЕКЦИИ ============================== */
+        .section { position: relative; padding: 120px 0; }
+        .section-head { max-width: 760px; margin-bottom: 56px; }
+        .kicker { font: 600 13px/1 var(--mono); color: var(--brand); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 18px; display: block; }
+        .section-title { font-size: clamp(30px, 3.8vw, 46px); line-height: 1.1; }
+        .section-sub { margin-top: 18px; font-size: 18px; color: var(--muted); }
+
+
+        /* что делаю */
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .card { padding: 32px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border-soft); transition: border-color .3s, transform .3s; }
+        .card:hover { border-color: var(--border); transform: translateY(-3px); }
+        .card-icon { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); margin-bottom: 22px; border: 1px solid oklch(87% 0.22 125 / .2); }
+        .card-icon svg { width: 22px; height: 22px; }
+        .card h3 { font-size: 20px; line-height: 1.25; margin-bottom: 12px; }
+        .card p { color: var(--muted); font-size: 15.5px; }
+
+
+        /* цены */
+        .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .plan { position: relative; padding: 40px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; }
+        .plan--main { background: linear-gradient(160deg, oklch(27% 0.07 128), var(--surface) 55%); border-color: oklch(87% 0.22 125 / .45); box-shadow: 0 40px 120px -50px var(--brand); }
+        .plan-badge { position: absolute; top: 22px; right: 22px; font: 600 12px/1 var(--font); padding: 8px 12px; border-radius: 999px; background: var(--brand); color: var(--on-brand); }
+        .plan-name { font: 600 14px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+        .plan-price { margin: 22px 0 6px; font: 900 64px/1 var(--font-display); color: var(--heading); letter-spacing: -0.04em; }
+        .plan-price small { font: 500 17px/1 var(--font); color: var(--muted); letter-spacing: 0; margin-left: 6px; }
+        .plan-price .from { font: 500 22px/1 var(--font); color: var(--muted); letter-spacing: 0; margin-right: 6px; vertical-align: 8px; }
+        .plan-desc { color: var(--muted); margin-bottom: 26px; }
+        .plan ul { list-style: none; margin: 0 0 34px; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+        .plan li { display: flex; gap: 12px; font-size: 15.5px; }
+        .plan li::before {
+            content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 6px; background: var(--brand-soft);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c6f432' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");
+            background-size: 12px; background-position: center; background-repeat: no-repeat;
+        }
+        .plan .btn { margin-top: auto; justify-content: center; }
+        .pricing-note { margin-top: 24px; display: flex; gap: 28px; flex-wrap: wrap; color: var(--muted); font-size: 14.5px; }
+        .pricing-note span::before { content: "— "; color: var(--brand); }
+
+        /* шаги */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: s; }
+        .step { padding: 28px; border-radius: var(--radius); border: 1px solid var(--border-soft); background: var(--bg-2); counter-increment: s; }
+        .step::before { content: "0" counter(s); font: 900 15px/1 var(--font-display); color: var(--on-brand); background: var(--brand); width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 22px; }
+        .step h3 { font-size: 18px; margin-bottom: 10px; }
+        .step p { font-size: 15px; color: var(--muted); }
+
+
+        /* CTA */
+        .cta { position: relative; overflow: hidden; text-align: center; padding: 90px 32px; border-radius: 32px; border: 1px solid oklch(87% 0.22 125 / .3); background: radial-gradient(ellipse at top, oklch(28% 0.08 128), var(--bg-2) 70%); }
+        .cta-inner { position: relative; z-index: 1; }
+        .cta h2 { font-size: clamp(32px, 4.4vw, 54px); line-height: 1.08; max-width: 820px; margin: 0 auto; font-weight: 900; }
+        .cta p { margin: 22px auto 0; max-width: 560px; font-size: 18px; }
+        .contacts { margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 230px; padding: 18px 22px; border-radius: 16px; text-decoration: none; text-align: left; background: oklch(13.5% 0.005 130 / .6); border: 1px solid var(--border); transition: border-color .2s, transform .2s; }
+        .contact:hover { border-color: var(--brand); transform: translateY(-2px); }
+        .contact-label { font: 500 12px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+        .contact-value { font-weight: 600; color: var(--heading); font-size: 17px; }
+        .contact--main { background: var(--brand); border-color: var(--brand); }
+        .contact--main .contact-label { color: oklch(30% 0.06 130); }
+        .contact--main .contact-value { color: var(--on-brand); }
+
+        .footer { padding: 48px 0 56px; color: var(--muted); font-size: 14px; }
+        .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid var(--border-soft); padding-top: 32px; }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .marquee { animation: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ============================== АДАПТИВ ============================== */
+        @media (max-width: 1020px) {
+            .cards { grid-template-columns: 1fr 1fr; }
+            .steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 760px) {
+            body { font-size: 16px; }
+            .section { padding: 80px 0; }
+            .hero { padding: 80px 0 72px; }
+            .cards, .pricing, .steps { grid-template-columns: 1fr; }
+            .plan, .card { padding: 26px; }
+            .plan-price { font-size: 52px; }
+            .cta { padding: 64px 22px; }
+            .contact { min-width: 0; width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<!-- ===================== ШАПКА ===================== -->
-<header class="site-header" id="top">
-    <div class="container header-inner">
-        <a class="logo" href="#top">Роман Агилов</a>
-        <nav class="nav" aria-label="Основная навигация">
-            <a href="#solutions">Решения</a>
-            <a href="#formats">Форматы</a>
-            <!--
-            <a href="#cases">Кейсы</a>
-            <a href="#reviews">Отзывы</a>
-            -->
-            <a href="#about">Обо мне</a>
-            <a href="#rules">Правила</a>
-        </nav>
-        <a class="btn btn--primary btn--small" href="#contacts">Связаться</a>
-    </div>
-</header>
+<main id="top">
 
-<main>
-
-    <!-- ===================== ГЛАВНЫЙ ЭКРАН ===================== -->
+    <!-- ============================== HERO ============================== -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-inner">
-                <div>
-                    <h1>Роман Агилов</h1>
-                    <p class="hero-role">IT-консультант для малого и среднего бизнеса</p>
-                    <p class="hero-line">Экономлю деньги на IT функцию и заставляю её работать на бизнес - а не на эго специалистов.</p>
-                    <a class="btn btn--primary" href="#contacts">Назначить встречу</a>
+        <div class="grid-bg"></div>
+        <div class="glow"></div>
+        <div class="container hero-inner">
+            <div>
+                <h1>Привожу <em>клиентов</em> в&nbsp;ваш бизнес</h1>
+                <p class="hero-lead">
+                    Настраиваю и веду рекламу в Instagram, Facebook и Google.
+                    Ваша задача — отвечать на заявки и звонки. Остальное — моя.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn--primary" href="#contacts">
+                        Хочу больше клиентов
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                    <a class="btn btn--ghost" href="#pricing">Цены</a>
                 </div>
-                <div class="hero-photo">
-                    <!-- Положите своё фото в img/roman-agilov-photo.png — оно обрежется по кругу -->
-                    <img src="img/roman-agilov-photo.png" alt="Роман Агилов" width="800" height="800">
+                <div class="hero-note">
+                    <span>Запуск <b>$999</b></span>
+                    <span>Ведение <b>от $399/мес</b></span>
                 </div>
             </div>
-
-            <!-- ПОЛОСА ЦИФР (как «20+ клиентов…» в референсе).
-                 Впишите свои реальные цифры и раскомментируйте.
-            <div class="stats grid grid--3">
-              <div class="stat">
-                <div class="stat-num">XX+</div>
-                <div class="stat-label">Проверенных программистов</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">XX+</div>
-                <div class="stat-label">Закрытых наймов</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">$XXX&nbsp;XXX+</div>
-                <div class="stat-label">Сэкономлено клиентам на IT</div>
-              </div>
-            </div>
-            -->
         </div>
     </section>
 
-    <!-- ===================== КАКИЕ ЗАДАЧИ Я ПОМОГУ РЕШИТЬ ===================== -->
-    <section class="section" id="solutions">
+    <!-- ============================== КАНАЛЫ ============================== -->
+    <div class="channels" aria-label="Рекламные каналы">
+        <div class="marquee">
+            <span>Instagram</span><span>Facebook</span><span>Google Поиск</span><span>Google Карты</span><span>YouTube</span><span>ChatGPT</span><span>Bing</span><span>SEO</span>
+            <span>Instagram</span><span>Facebook</span><span>Google Поиск</span><span>Google Карты</span><span>YouTube</span><span>ChatGPT</span><span>Bing</span><span>SEO</span>
+        </div>
+    </div>
+
+    <!-- ============================== ЧТО ДЕЛАЮ ============================== -->
+    <section class="section" id="services">
         <div class="container">
-            <h2 class="section-title">Какие задачи я помогу решить</h2>
-
-            <!-- Нумерация проставляется автоматически (CSS-счётчик):
-                 пункты можно добавлять и удалять, цифры пересчитаются сами -->
-            <div class="numbered">
-                <article class="item">
-                    <h3>Непонятный программист</h3>
-                    <p>Вы платите зарплату, но не понимаете, чем занят человек и что получаете взамен.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Профи или «вкатун»</h3>
-                    <p>Не можете оценить квалификацию: какого качества код, какой реальный опыт, чего стоят
-                        обещания.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Многоработник</h3>
-                    <p>Подозреваете, что ваш программист параллельно работает ещё на две-три компании.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Первый найм без экспертизы</h3>
-                    <p>Нужен первый программист, но вы не из IT и рискуете нанять «дорогое резюме» в надежде, что оно
-                        само разберётся.</p>
-                </article>
-
-                <article class="item">
-                    <h3>IT работает на себя</h3>
-                    <p>Функция IT обслуживает карьеру, резюме, эго и фантазии сотрудников, а не задачи бизнеса.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Расходы без отдачи</h3>
-                    <p>Бюджет на IT растёт, но вы не понимаете, как это связано с прибылью.</p>
-                </article>
+            <div class="section-head reveal">
+                <span class="kicker">Что делаю</span>
+                <h2 class="section-title">Вся реклама под ключ — от объявления до заявки</h2>
             </div>
-
-            <div class="cta-row">
-                <a class="btn btn--primary" href="#contacts">Обсудить ваши задачи</a>
+            <div class="cards">
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+                    <h3>Instagram и Facebook</h3>
+                    <p>Находим людей, которым нужен ваш продукт, и показываем им рекламу с понятным предложением.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+                    <h3>Google: поиск и карты</h3>
+                    <p>Ловим тех, кто уже ищет «рядом со мной» или «цена». Это самые горячие клиенты.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+                    <h3>Тексты и креативы</h3>
+                    <p>Пишем объявления и делаем картинки. Тестируем несколько вариантов и оставляем те, что приводят клиентов.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h4"/></svg></div>
+                    <h3>Сайт, который продаёт</h3>
+                    <p>Проверяем и дорабатываем страницу, куда ведёт реклама. Если сайта нет — сделаем простую посадочную.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div>
+                    <h3>Заявки сразу в Telegram</h3>
+                    <p>Каждая заявка прилетает вам в телефон за секунды. Клиент не успевает уйти к конкуренту.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
+                    <h3>Счёт в деньгах</h3>
+                    <p>Считаю не клики и лайки, а сколько стоит одна заявка и один клиент. И что сделать, чтобы стало дешевле и больше.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- ===================== ФОРМАТЫ РАБОТЫ ===================== -->
-    <section class="section" id="formats">
+    <!-- ============================== ЦЕНЫ ============================== -->
+    <section class="section" id="pricing" style="padding-top: 0;">
         <div class="container">
-            <h2 class="section-title">Форматы работы</h2>
+            <div class="section-head reveal">
+                <span class="kicker">Цены</span>
+                <h2 class="section-title">Две цифры. Без мелкого шрифта.</h2>
+                <p class="section-sub">Один раз настраиваем всё как надо, дальше веду рекламу каждый месяц.</p>
+            </div>
 
-            <!-- Формат 1: стратегическая сессия (карточка с рамкой) -->
-            <article class="plan">
-                <h3>Стратегическая сессия</h3>
-                <div class="plan-grid">
-                    <div>
-                        <p class="label">Для кого</p>
-                        <p>Для собственников малого и среднего бизнеса с конкретным вопросом: оценить программиста,
-                            подготовиться к найму, разобраться с расходами на IT.</p>
+            <div class="pricing">
+                <article class="plan reveal">
+                    <span class="plan-name">Запуск</span>
+                    <div class="plan-price">$999<small>разово</small></div>
+                    <p class="plan-desc">Всё, что нужно, чтобы реклама начала приводить клиентов.</p>
+                    <ul>
+                        <li>Разбор бизнеса, конкурентов и текущей рекламы</li>
+                        <li>План: где искать клиентов и сколько на это нужно</li>
+                        <li>Настройка рекламных кабинетов и аналитики</li>
+                        <li>Доработка сайта или простая посадочная страница</li>
+                        <li>Заявки с сайта — в ваш Telegram</li>
+                        <li>Первые кампании, тексты и креативы</li>
+                    </ul>
+                    <a class="btn btn--ghost" href="#contacts">Начать с запуска</a>
+                </article>
 
-                        <p class="label">Формат</p>
-                        <p>1–2 онлайн-встречи. Информацию и материалы собираю заранее — на встречу прихожу
-                            подготовленным, время не уходит на «расскажите с начала».</p>
-                    </div>
-                    <div>
-                        <p class="label">Результат</p>
-                        <p>Честная картина ситуации простым языком.</p>
-                        <p>Понимание следующих 2–3 шагов.</p>
+                <article class="plan plan--main reveal">
+                    <span class="plan-badge">Основное</span>
+                    <span class="plan-name">Ведение</span>
+                    <div class="plan-price"><span class="from">от</span>$399<small>/ мес</small></div>
+                    <p class="plan-desc">Каждый день слежу за рекламой, каждую неделю улучшаю результат.</p>
+                    <ul>
+                        <li>Ведение рекламы в Instagram, Facebook, Google и других каналах</li>
+                        <li>Отключаю то, что не работает, усиливаю то, что приводит клиентов</li>
+                        <li>Новые объявления и тесты каждый месяц</li>
+                        <li>Еженедельный отчёт простым языком</li>
+                        <li>На связи в Telegram</li>
+                    </ul>
+                    <a class="btn btn--primary" href="#contacts">Обсудить ведение</a>
+                </article>
+            </div>
+            <div class="pricing-note reveal">
+                <span>Рекламный бюджет оплачивается отдельно, напрямую площадкам</span>
+                <span>Цена ведения зависит от числа каналов и бюджета</span>
+            </div>
+        </div>
+    </section>
 
-                        <p class="price">$1000 / сессия</p>
-                        <a class="btn btn--secondary" href="#contacts">Записаться на сессию</a>
+    <!-- ============================== ПРОЦЕСС ============================== -->
+    <section class="section" id="process" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="kicker">Как работаем</span>
+                <h2 class="section-title">От первого разговора до первых заявок</h2>
+            </div>
+            <div class="steps">
+                <article class="step reveal">
+                    <h3>Знакомство</h3>
+                    <p>Бесплатный созвон: что продаёте, кому, сколько стоит клиент. Честно скажу, получится ли.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>План</h3>
+                    <p>Смотрю конкурентов и вашу рекламу. Предлагаю, где искать клиентов и какой нужен бюджет.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>Запуск</h3>
+                    <p>Настраиваю кабинеты, сайт и заявки в Telegram. Запускаю первые кампании.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>Рост</h3>
+                    <p>Каждую неделю улучшаю: дешевле заявка, больше клиентов. Вы видите это в цифрах.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== КОНТАКТЫ ============================== -->
+    <section class="section" id="contacts" style="padding-top: 0;">
+        <div class="container">
+            <div class="cta reveal">
+                <div class="grid-bg"></div>
+                <div class="cta-inner">
+                    <h2>Поговорим о ваших клиентах?</h2>
+                    <p>Напишите — договоримся о бесплатном созвоне и посмотрим, как привести вам больше клиентов.</p>
+                    <div class="contacts">
+                        <a class="contact contact--main" target="_blank" rel="noopener" href="https://t.me/agilov">
+                            <span class="contact-label">Telegram</span>
+                            <span class="contact-value">@agilov</span>
+                        </a>
+                        <a class="contact" href="mailto:agilovr@gmail.com">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">agilovr@gmail.com</span>
+                        </a>
+                        <a class="contact" target="_blank" rel="noopener" href="https://www.linkedin.com/in/agilov/">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">linkedin.com/in/agilov</span>
+                        </a>
                     </div>
                 </div>
-            </article>
-
-            <!-- Формат 2: сопровождение (карточка с заливкой) -->
-            <article class="plan plan--filled">
-                <h3>Сопровождение</h3>
-                <div class="plan-grid">
-                    <div>
-                        <p class="label">Для кого</p>
-                        <p>Для собственников, у которых вопросы к IT и программистам возникают постоянно, а своей
-                            экспертизы нет.</p>
-
-                        <p class="label">Формат</p>
-                        <p>Полный контакт: я на связи, вопросы решаем по мере появления.</p>
-                        <p>Собеседования, проверка работы программистов и подрядчиков, решения о деньгах.</p>
-                    </div>
-                    <div>
-                        <p class="label">Результат</p>
-                        <p>IT под контролем. Решения принимаются с опорой на экспертизу, а не на слова
-                            программистов.</p>
-                        <p>Деньги не утекают.</p>
-
-                        <p class="price">$2500 / месяц</p>
-                        <a class="btn btn--primary" href="#contacts">Обсудить сопровождение</a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- ===================== КЕЙСЫ (заготовка) =====================
-         Структура как в референсе: Ситуация → Что сделал → Результат,
-         каждый факт — отдельным коротким абзацем.
-         Впишите 2–3 реальных кейса и раскомментируйте секцию целиком
-         (и пункт «Кейсы» в меню шапки).
-
-    <section class="section" id="cases">
-      <div class="container">
-        <h2 class="section-title">Кейсы</h2>
-
-        <div class="grid grid--2">
-          <article class="case">
-            <h3>Название кейса</h3>
-
-            <p class="label">Ситуация</p>
-            <p>Компания, размер, сфера.</p>
-            <p>В чём была проблема.</p>
-
-            <p class="label">Что сделал</p>
-            <p>Шаг 1.</p>
-            <p>Шаг 2.</p>
-
-            <p class="label">Результат</p>
-            <p>Измеримый итог: деньги, сроки, решение.</p>
-          </article>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn btn--primary" href="#contacts">Решить ваш кейс</a>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- ===================== ОТЗЫВЫ (заготовка) =====================
-         Впишите реальные отзывы и раскомментируйте секцию
-         (и пункт «Отзывы» в меню шапки). Фото клиента положите в img/
-         или удалите строку с <img>.
-
-    <section class="section" id="reviews">
-      <div class="container">
-        <h2 class="section-title">Отзывы</h2>
-
-        <div class="grid grid--2">
-          <article class="review">
-            <div class="review-head">
-              <img class="review-photo" src="img/review-1.png" alt="Имя Фамилия" width="64" height="64">
-              <div>
-                <p class="review-name">Имя Фамилия</p>
-                <p class="review-role">Должность, компания</p>
-              </div>
-            </div>
-            <blockquote class="review-quote">«Текст отзыва…»</blockquote>
-          </article>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- ===================== ПОЧЕМУ Я ===================== -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">Почему я</h2>
-
-            <h3 class="about-sub">Обо мне</h3>
-            <div class="about-text">
-                <p>Смотрю на IT глазами владельца бизнеса: считаю деньги и результат, а&nbsp;не строки кода и модные
-                    технологии.</p>
-                <p>Экономлю деньги на IT в малых и средних компаниях. Заставляю IT работать на бизнес — а не на карьеру,
-                    развлечения, эго, резюме, фантазии и травмы отдельных специалистов.</p>
-                <p>Объясняю простым языком: что происходит, сколько это стоит и что с этим делать.</p>
-            </div>
-
-            <!-- ОПЫТ И ОБРАЗОВАНИЕ (как в референсе).
-                 Впишите свои факты и раскомментируйте.
-            <div class="roles-grid grid grid--2">
-              <div>
-                <h3>Опыт</h3>
-                <p class="role"><span class="role-title">Роль</span><span class="role-org">Компания</span></p>
-                <p class="role"><span class="role-title">Роль</span><span class="role-org">Компания</span></p>
-              </div>
-              <div>
-                <h3>Образование</h3>
-                <p class="role"><span class="role-title">Специальность</span><span class="role-org">Вуз</span></p>
-              </div>
-            </div>
-            -->
-
-            <div class="cta-row">
-                <a class="btn btn--primary" href="#contacts">Связаться напрямую</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== ПРАВИЛА ВЗАИМОДЕЙСТВИЯ ===================== -->
-    <section class="section" id="rules">
-        <div class="container">
-            <h2 class="section-title">Правила взаимодействия</h2>
-
-            <div class="numbered">
-                <article class="item">
-                    <h3>Простым языком</h3>
-                    <p>Никакого технического жаргона.</p>
-                    <p>Выводы и рекомендации — на языке денег, сроков и здравого смысла.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Готовлюсь заранее</h3>
-                    <p>Информацию и материалы собираю до встречи.</p>
-                    <p>Ваше время не уходит на пересказ очевидного.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Честная картина</h3>
-                    <p>Говорю как есть, даже если вывод неприятный.</p>
-                    <p>Вы платите за правду, а не за комфортные формулировки.</p>
-                </article>
-
-                <article class="item">
-                    <h3>На стороне бизнеса</h3>
-                    <p>Не защищаю программистов и не продаю технологии.</p>
-                    <p>Критерий один: польза для вашего дела.</p>
-                </article>
-
-                <article class="item">
-                    <h3>Решения остаются за вами</h3>
-                    <p>Я даю картину, варианты и последствия.</p>
-                    <p>Нанимать, увольнять и платить — решаете вы.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== СВЯЗАТЬСЯ ===================== -->
-    <!-- ВАЖНО: замените плейсхолдеры на реальные данные — и в href, и в видимом тексте -->
-    <section class="section" id="contacts">
-        <div class="container">
-            <h2 class="section-title">Связаться</h2>
-
-            <div class="grid grid--3">
-                <a class="contact" href="mailto:agilovr@gmail.com">
-                    <span class="contact-label">Email</span>
-                    <span class="contact-value">agilovr@gmail.com</span>
-                </a>
-                <!-- В href вставьте ссылку вида https://t.me/username -->
-                <a class="contact" target="_blank" href="https://t.me/agilov">
-                    <span class="contact-label">Telegram</span>
-                    <span class="contact-value">@agilov</span>
-                </a>
-                <a class="contact" target="_blank" href="https://www.linkedin.com/in/agilov/">
-                    <span class="contact-label">LinkedIn</span>
-                    <span class="contact-value">linkedin.com/in/agilov</span>
-                </a>
             </div>
         </div>
     </section>
 
 </main>
 
-<!-- ===================== ПОДВАЛ ===================== -->
 <footer class="footer">
     <div class="container footer-inner">
         <p>© <span id="year">2026</span> Роман Агилов</p>
-        <p>
-            ROMAN AGILOV PR BEOGRAD
-            <br/>
-            MB 68367476
-            <br/>
-            Gavrila Principa 43, Beograd
-        </p>
+        <p>ROMAN AGILOV PR BEOGRAD · MB 68367476 · Gavrila Principa 43, Beograd</p>
     </div>
 </footer>
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Появление блоков при скролле
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
 </script>
 </body>
 </html>
